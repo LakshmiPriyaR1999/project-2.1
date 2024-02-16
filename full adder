@@ -1,0 +1,13 @@
+CHIP FullAdder {
+    IN a, b, in;
+    OUT sum, carry;
+
+    PARTS:
+    // Implement XOR gates for sum
+    Xor(a=a, b=b, out=sum1);
+    Xor(a=sum1, b=in, out=sum);
+    // Implement AND gates for carry
+    And(a=a, b=b, out=and1);
+    And(a=sum1, b=in, out=and2);
+    Or(a=and1, b=and2, out=carry);
+}
